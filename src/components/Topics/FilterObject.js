@@ -22,17 +22,16 @@ export default class FilterObject extends Component {
                     title: 'CEO'
                 }
             ],
-
-        filteredEmployees: [],
-        userInput: ''
+        userInput: '',
+        filteredEmployees: []
     }
 }
 
 handleChange(val) {
-    this.setState({ userInput: val});
+    this.setState({ userInput: val });
 }
 
-filteredEmployees(prop) {
+filterEmployees(prop) {
     let employees = this.state.employees;
     let filteredEmployees = [];
 
@@ -50,7 +49,7 @@ filteredEmployees(prop) {
         <h4>Filter Object</h4>
         <span className='puzzleText'>Original: {JSON.stringify(this.state.employees, null, 10)}</span>
         <input className='inputLine' onChange={(e) => this.handleChange(e.target.value)}></input>
-         <button className='confirmationButton' onClick={() => this.filteredEmployees(this.state.userInput)}></button>
+         <button className='confirmationButton' onClick={() => this.filterEmployees(this.state.userInput)}>Filter</button>
          <span className='resultsBox filterObjectRB'>Filtered: {JSON.stringify(this.state.filteredEmployees, null, 10)}</span>
         </div>
         )
